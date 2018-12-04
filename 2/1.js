@@ -9,12 +9,26 @@ let twos = 0
 let threes = 0
 
 inputs.forEach(input => {
-  [...input].forEach(val => {
-    let dupes = [...input].filter(val => val===val)
-    if (dupes.length === 2) {
+  let inputArr = [...input]
+  let foundATwo = false
+  let foundAThree = false
+
+  while (inputArr.length>1) {
+    if (foundATwo === true && foundAThree === true) break
+    let val = inputArr.shift()
+    let duplicates = [val, ...inputArr.filter(test => test === val)]
+    inputArr = inputArr.filter(test => test !== val)
+
+    if (!foundATwo && duplicates.length === 2) {
       twos++
-    } else if (dupes.length === 3) {
+      foundATwo = true
+    } else if (!foundAThree && duplicates.length === 3) {
       threes++
+      foundAThree = true
     }
-  })
+  }
 })
+
+console.log('twos:    ',twos)
+console.log('threes:  ',threes)
+console.log('checksum:',twos*threes)
