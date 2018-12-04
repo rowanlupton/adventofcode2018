@@ -4,4 +4,4 @@
 */
 
 const fs = require('fs')
-const input = fs.readFileSync('input')
+const inputs = fs.readFileSync('input').toString().split('\n')

@@ -4,11 +4,11 @@
 */
 
 const fs = require('fs')
-const input = fs.readFileSync('input').toString().split('\n').map(Number)
+const inputs = fs.readFileSync('input').toString().split('\n').map(Number)
 let sum = 0
 
-input.forEach(function (freq) {
-  sum += freq
+inputs.forEach(function (input) {
+  sum += input
 })
 
 console.log(sum)

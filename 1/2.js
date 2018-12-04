@@ -4,15 +4,15 @@
 */
 
 const fs = require('fs')
-const input = fs.readFileSync('input').toString().split('\n').map(Number)
+const inputs = fs.readFileSync('input').toString().split('\n').map(Number)
 let sum = 0
 let seenFrequencies = []
 let duplicate = null
 
 while (!duplicate) {
-  for (let i = 0; i < input.length; i++) {
-    let freq = input[i]
-    sum += freq
+  for (let i = 0; i < inputs.length; i++) {
+    let input = inputs[i]
+    sum += input
     if (seenFrequencies[sum]) {
       duplicate = sum
       break
