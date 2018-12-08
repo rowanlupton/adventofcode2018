@@ -5,7 +5,7 @@
 
 const fs = require('fs')
 const inputs = fs.readFileSync('input').toString().split('\n')
-  .map((input) => [...input])
+  .map((input) => [...input]) // turn these strings into arrays from the start
 
 /*
 abcdefg
@@ -40,22 +40,16 @@ and check inputs[][index of character inside string] === character inside string
 the thing to do here is to make a _new_ array out of the inputs, but starting
 from string index. we then call the filter on that.
 */
-// console.log(inputs.slice(0,2))
-// return true
+
 inputs.forEach((input, index) => {
-  let match = []
+  let matchedChars = []
   futureInputs = inputs.slice(index + 1)
-  // console.log(futureInputs[0])
 
-  match.push(input.filter((char, charIndex) => {
-    // filter for chars who appear in the same index in future input(s)
-
-  }))
-
-  // input.forEach((char, charIndex) => {
-  //   match.push(futureInputs.filter(futureInput => futureInput[charIndex] === char))
-  // })
-  if (match.length !== 26) {console.log(match.length); return true}
+  futureInputs.forEach((futureInput) => {
+    matchedChars = input.filter((char, charIndex) => char === futureInput[charIndex])
+    if (matchedChars.length === input.length - 1) {
+      console.log(matchedChars.join(''))
+      return true
+    }
+  })
 })
-
-// console.log('finished')
