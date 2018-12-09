@@ -8,11 +8,16 @@ const inputs = fs.readFileSync('input').toString().split('\n')
                   .map(parseClaim)
 
 function parseClaim (claim) {
-  let id = Number(claim.split(/[#@]/)[1])
-  let coord = [Number(claim.split(/[@,:]/)[1]), Number(claim.split(/[@,:]/)[2])]
-  let size = [Number(claim.split(/[:x]/)[1]), Number(claim.split(/[:x]/)[2])]
+  claim = claim.split(/[#@,:x]/)
+
+  let id = Number(claim[1])
+  let coord = [Number(claim[2]), Number(claim[3])]
+  let size = [Number(claim[4]), Number(claim[5])]
+
   return [id, coord, size]
 }
+
+console.log(inputs[0])
 
 let duplicates = 0
 let fabricAreas = []
