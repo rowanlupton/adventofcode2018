@@ -23,10 +23,10 @@ let fabricAreas = []
 inputs.forEach(input => {
   for (let  x = input.coordinates.x;
             x < input.coordinates.x + input.size.x;
-            x ++) {
+            x++) {
     if (!fabricAreas[x]) fabricAreas[x] = []
     for (let  y = input.coordinates.y;
-              y < input.coordinates.y + input.size.x;
+              y < input.coordinates.y + input.size.y;
               y++) {
       if (!fabricAreas[x][y]) fabricAreas[x][y] = 0
       fabricAreas[x][y]++
