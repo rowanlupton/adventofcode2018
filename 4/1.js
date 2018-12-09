@@ -4,4 +4,16 @@
 */
 
 const fs = require('fs')
-const inputs = fs.readFileSync('input').toString().split('\n')
+const inputs = fs.readFileSync('input').toString().split('\n').sort()
+
+function findSleepiestGuard (inputs) {
+  let guard = null
+
+  return guard
+}
+
+function findGuardSleepiestMinute (guard) {
+  let minute = null
+
+  return minute
+}
