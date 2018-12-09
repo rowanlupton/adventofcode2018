@@ -29,7 +29,21 @@ inputs.forEach(input => {
               y++) {
       if (!fabricAreas[x][y]) fabricAreas[x][y] = 0
       fabricAreas[x][y]++
-      if (fabricAreas[x][y] > 1) duplicates++
     }
   }
 })
+
+console.log(inputs.filter(input => {
+  for (let  x = input.coordinates.x;
+            x < input.coordinates.x + input.size.x;
+            x++) {
+    for (let  y = input.coordinates.y;
+              y < input.coordinates.y + input.size.y;
+              y++) {
+      // if a given fabricArea has more than one occurrence, the input is busted
+      if (fabricAreas[x][y] > 1) return false
+    }
+  }
+  // if it hasn't returned false after running through, well, we're golden
+  return true
+})[0].id)
