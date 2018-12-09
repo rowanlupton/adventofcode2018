@@ -17,8 +17,6 @@ function parseClaim (claim) {
   return [id, coord, size]
 }
 
-console.log(inputs[0])
-
 let duplicates = 0
 let fabricAreas = []
 
